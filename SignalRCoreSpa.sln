@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "signalrcorespa", "src\signa
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "src\docker-compose.dcproj", "{64E54840-A17E-40DC-9713-AB65FA2936BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tests", "test\tests.csproj", "{A5FAAF37-DB19-4952-8F58-FBDF98B3045C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{A5FAAF37-DB19-4952-8F58-FBDF98B3045C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
