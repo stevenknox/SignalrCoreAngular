@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+   name: signalrcore-deploy
+   labels:
+     app: signalrcore
+spec:
+  replicas: 10
+  minReadySeconds: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: signalrcore
+  template:
+    metadata:
+      labels:
+        app: signalrcore
+    spec:
+      containers:
+      - name: signalrcore-pod
+        image: stevenknox/signalrcorespa
+        ports:
+        - containerPort: 8080
