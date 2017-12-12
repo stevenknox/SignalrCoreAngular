@@ -3,9 +3,10 @@ node {
         build()
         BuildImage()
         PushImage()
-        notify("Success")
+        Deploy()
+        notify("Build Success")
     } catch(err) {
-        notify("Caught ${err}")
+        notify("Build Failure ${err}")
         currentBuild.result = 'FAILURE'
     }
 }
@@ -50,6 +51,13 @@ def PushImage(){
     }
 }
 
+def Deploy(){
+    stage('Deploy to Kubernetes Cluster')
+    dir('src')
+    {
+        kubernetesDeploy configs: 'k8s-*.yml', kubeConfig: [path: '../../kubeconfig'], secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+    }
+}
 
 def notify(status){
     emailext (
