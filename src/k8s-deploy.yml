@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: extensions/v1beta1 #apps/v1beta2
 kind: Deployment
 metadata:
    name: signalrcore-deploy
@@ -12,9 +12,9 @@ spec:
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
-  selector:
-    matchLabels:
-      app: signalrcore
+  # selector:
+  #   matchLabels:
+  #     app: signalrcore
   template:
     metadata:
       labels:
