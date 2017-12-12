@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
       - name: signalrcore-pod
-        image: stevenknox/signalrcorespa
+        image: stevenknox/signalrcorespa:$BUILD_NUMBER
         ports:
         - containerPort: 8080
